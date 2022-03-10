@@ -55,6 +55,9 @@ def sync_challenge(challenge, ignore=[]):
     if challenge.get("connection_info") and "connection_info" not in ignore:
         data["connection_info"] = challenge.get("connection_info")
 
+    if challenge.get("docker_image") and "docker_image" not in ignore:
+        data["docker_image"] = challenge.get("docker_image")
+
     data["state"] = "hidden"
 
     installed_challenges = load_installed_challenges()
@@ -230,6 +233,9 @@ def create_challenge(challenge, ignore=[]):
 
     if challenge.get("connection_info") and "connection_info" not in ignore:
         data["connection_info"] = challenge.get("connection_info")
+
+    if challenge.get("docker_image") and "docker_image" not in ignore:
+        data["docker_image"] = challenge.get("docker_image")
 
     s = generate_session()
 
